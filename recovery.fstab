@@ -1,12 +1,10 @@
-/boot            emmc              /dev/block/bootdevice/by-name/boot
-/system          ext4              /dev/block/bootdevice/by-name/system
-/system_image    emmc              /dev/block/bootdevice/by-name/system
-/data	         ext4              /dev/block/bootdevice/by-name/userdata   length=-16384
-/cache	         ext4              /dev/block/bootdevice/by-name/cache
-/misc	          emmc              /dev/block/bootdevice/by-name/misc
-/recovery        emmc              /dev/block/bootdevice/by-name/recovery   flags=backup=1
-/efs1            emmc              /dev/block/bootdevice/by-name/modemst1   flags=backup=1;display=EFS
-/efs2            emmc              /dev/block/bootdevice/by-name/modemst2   flags=backup=1;subpartitionof=/efs1
+/dev/block/bootdevice/by-name/system         /system      ext4    ro,noatime,errors=panic,noload                       wait
+/dev/block/bootdevice/by-name/userdata       /data        ext4    nosuid,nodev,noatime,noauto_da_alloc,discard,journal_async_commit,errors=panic      wait,check,encryptable=footer
+/dev/block/bootdevice/by-name/efs            /efs         ext4    nosuid,nodev,noatime,noauto_da_alloc,discard,journal_async_commit,errors=panic      wait,check
+/dev/block/bootdevice/by-name/cache          /cache       ext4    nosuid,nodev,noatime,noauto_da_alloc,discard,journal_async_commit,errors=panic      wait,check
+/dev/block/platform/7824900.sdhci/by-name/persistent    /persistent     emmc    defaults        defaults
 
-/external_sd     vfat              /dev/block/mmcblk1p1  /dev/block/mmcblk1
-/usb-otg         vfat              /dev/block/sda1      /dev/block/sda              flags=removable;storage;display=USB-OTG
+# VOLD
+/dev/block/bootdevice/by-name/hidden         /preload     ext4           defaults        voldmanaged=preload:auto
+/devices/soc.0/7864900.sdhci/mmc_host/mmc*       auto            vfat    defaults        voldmanaged=sdcard:auto
+/devices/platform/msm_hsusb_host/usb*            auto            auto    defaults        voldmanaged=usb:auto

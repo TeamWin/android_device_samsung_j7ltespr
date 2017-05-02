@@ -24,9 +24,9 @@ BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x80008000 --ramdisk_offset 0x82000000 -
 
 # prebuilt kernel
 TARGET_PREBUILT_KERNEL := device/samsung/j7ltespr/kernel
-# else uncomment below to build from sauce
-#TARGET_KERNEL_SOURCE := kernel/samsung/j7ltespr
-#TARGET_KERNEL_CONFIG := msm8916_defconfig
+
+#fstab
+TARGET_RECOVERY_FSTAB := device/samsung/j7ltespr/twrp/twrp.fstab
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 12582912
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 15728640
