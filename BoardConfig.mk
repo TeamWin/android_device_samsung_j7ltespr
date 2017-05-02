@@ -23,6 +23,9 @@ BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x80008000 --ramdisk_offset 0x82000000 --tags_offset 0x81e00000 --dt device/samsung/j7ltespr/dt.img
 
+# custom mkbootimg
+BOARD_CUSTOM_BOOTIMG_MK := device/samsung/j7ltespr/mkbootimg.mk
+
 # prebuilt kernel
 TARGET_PREBUILT_KERNEL := device/samsung/j7ltespr/kernel
 
