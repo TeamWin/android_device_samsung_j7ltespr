@@ -29,6 +29,9 @@ BOARD_CUSTOM_BOOTIMG_MK := device/samsung/j7ltespr/mkbootimg.mk
 # prebuilt kernel
 TARGET_PREBUILT_KERNEL := device/samsung/j7ltespr/kernel
 
+# dtb
+TARGET_PREBUILT_DTB := device/samsung/j7ltespr/dt.img
+
 # fstab
 TARGET_RECOVERY_FSTAB := device/samsung/j7ltespr/twrp/twrp.fstab
 

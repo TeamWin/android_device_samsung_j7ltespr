@@ -36,7 +36,9 @@ PRODUCT_BRAND := Samsung
 PRODUCT_MODEL := J700P
 PRODUCT_MANUFACTURER := Samsung
 
-# Kernel inline build
-#TARGET_KERNEL_CONFIG := j7ltespr_defconfig
-#TARGET_VARIANT_CONFIG := j7ltespr_defconfig
-#TARGET_SELINUX_CONFIG := j7ltespr_defconfig
+ifeq ($(TARGET_PREBUILT_DTB),)
+LOCAL_DTB := device/samsung/j7ltespr/dt.img
+endif
+
+PRODUCT_COPY_FILES := \
+    $(LOCAL_DTB):dt.img
