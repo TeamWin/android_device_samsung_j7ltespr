@@ -35,10 +35,9 @@ BOARD_DTBTOOL_ARG                  := -2
 BOARD_KERNEL_CMDLINE               := console=null androidboot.hardware=qcom msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE              := 2048
 BOARD_KERNEL_SEPARATED_DT          := true
-TARGET_KERNEL_SOURCE               := kernel/samsung/j7ltespr
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
 KERNEL_TOOLCHAIN                   := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin
-TARGET_KERNEL_SOURCE               := kernel/samsung/j7ltespr
+TARGET_KERNEL_SOURCE               := kernel/samsung/msm8929
 TARGET_KERNEL_CONFIG               := lineageos_j7ltespr_defconfig
 
 # fstab
