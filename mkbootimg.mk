@@ -41,6 +41,9 @@ LZMA_RAMDISK := $(PRODUCT_OUT)/ramdisk-recovery-lzma.img
 $(LZMA_RAMDISK): $(recovery_ramdisk)
 	gunzip -f < $(recovery_ramdisk) | lzma -e > $@
 
+PRE_FLASH_IMAGE_TARGET ?= $(PRODUCT_OUT)/recovery.tar
+FLASH_IMAGE_TARGET ?= $(PRODUCT_OUT)/recovery.tar.md5
+
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(INSTALLED_DTIMAGE_TARGET) \
 		$(LZMA_RAMDISK) \
 		$(recovery_kernel)
@@ -49,7 +52,10 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(INSTALLED_DTIMAGE_TARGET) \
 	@echo -e ${CL_GRN}"----- Lying about SEAndroid state to Samsung bootloader ------"${CL_RST}
 	$(hide) echo -n "SEANDROIDENFORCE" >> $(INSTALLED_RECOVERYIMAGE_TARGET)
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE),raw)
-	@echo -e ${CL_CYN}"Made recovery image: $@"${CL_RST}
+	$(hide) tar -C $(PRODUCT_OUT) -H ustar -c recovery.img > $(PRE_FLASH_IMAGE_TARGET)
+	$(hide) md5sum -t $(PRE_FLASH_IMAGE_TARGET) >> $(PRE_FLASH_IMAGE_TARGET)
+	$(hide) mv $(PRE_FLASH_IMAGE_TARGET) $(FLASH_IMAGE_TARGET)
+	@echo -e ${CL_CYN}"Made Odin flashable recovery tar: ${FLASH_IMAGE_TARGET}"${CL_RST}
 
 
 .PHONY: dtimage
