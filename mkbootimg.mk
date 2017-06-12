@@ -42,7 +42,7 @@ $(LZMA_RAMDISK): $(recovery_ramdisk)
 	gunzip -f < $(recovery_ramdisk) | lzma -e > $@
 
 PRE_FLASH_IMAGE_TARGET ?= $(PRODUCT_OUT)/recovery.tar
-FLASH_IMAGE_TARGET ?= $(PRODUCT_OUT)/recovery.tar.md5
+#FLASH_IMAGE_TARGET ?= $(PRODUCT_OUT)/recovery.tar.md5
 
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(INSTALLED_DTIMAGE_TARGET) \
 		$(LZMA_RAMDISK) \
@@ -53,9 +53,9 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(INSTALLED_DTIMAGE_TARGET) \
 	$(hide) echo -n "SEANDROIDENFORCE" >> $(INSTALLED_RECOVERYIMAGE_TARGET)
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE),raw)
 	$(hide) tar -C $(PRODUCT_OUT) -H ustar -c recovery.img > $(PRE_FLASH_IMAGE_TARGET)
-	$(hide) md5sum -t $(PRE_FLASH_IMAGE_TARGET) >> $(PRE_FLASH_IMAGE_TARGET)
-	$(hide) mv $(PRE_FLASH_IMAGE_TARGET) $(FLASH_IMAGE_TARGET)
-	@echo -e ${CL_CYN}"Made Odin flashable recovery tar: ${FLASH_IMAGE_TARGET}"${CL_RST}
+	#$(hide) md5sum -t $(PRE_FLASH_IMAGE_TARGET) >> $(PRE_FLASH_IMAGE_TARGET)
+	#$(hide) mv $(PRE_FLASH_IMAGE_TARGET) $(FLASH_IMAGE_TARGET)
+	@echo -e ${CL_CYN}"Made Odin flashable recovery tar: ${PRE_FLASH_IMAGE_TARGET}"${CL_RST}
 
 
 .PHONY: dtimage
