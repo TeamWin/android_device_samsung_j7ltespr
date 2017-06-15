@@ -46,6 +46,7 @@ TARGET_KERNEL_CONFIG               := lineageos_j7ltespr_defconfig
 # fstab
 TARGET_RECOVERY_FSTAB := device/samsung/j7ltespr/twrp/twrp.fstab
 TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 TW_THEME := portrait_hdpi

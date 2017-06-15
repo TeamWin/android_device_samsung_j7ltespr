@@ -4,7 +4,7 @@
 /boot            emmc              /dev/block/bootdevice/by-name/boot
 /cache	         ext4              /dev/block/bootdevice/by-name/cache
 /carrier         emmc              /dev/block/bootdevice/by-name/carrier flags=backup=1;display=carrier
-/data	         ext4              /dev/block/bootdevice/by-name/userdata   length=-16384
+/data	         ext4              /dev/block/bootdevice/by-name/userdata length=-16384
 /ddr             emmc              /dev/block/bootdevice/by-name/ddr flags=backup=1;display=ddr
 /efs             emmc              /dev/block/bootdevice/by-name/efs flags=backup=1;display=efs
 /fota            emmc              /dev/block/bootdevice/by-name/fota flags=backup=1;display=fota
