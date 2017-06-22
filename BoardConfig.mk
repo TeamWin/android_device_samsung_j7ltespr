@@ -23,6 +23,9 @@ TARGET_CPU_CORTEX_A53 := true
 # custom mkbootimg
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/j7ltespr/mkbootimg.mk
 
+# DTB
+TARGET_PREBUILT_DTB := device/samsung/j7ltespr/dt.img
+
 # Kernel
 TARGET_KERNEL_ARCH := arm
 BOARD_BOOTIMAGE_PARTITION_SIZE := 13631488
