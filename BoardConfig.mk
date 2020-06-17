@@ -16,7 +16,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # DTB
-TARGET_PREBUILT_DTB := device/samsung/j7popltespr/dt.img
+TARGET_PREBUILT_DTB := device/samsung/j7ltespr/dt.img
 
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
